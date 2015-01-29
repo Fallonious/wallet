@@ -1,5 +1,8 @@
 class BankAccount < ActiveRecord::Base
 
+  validates :transaction_amount, presence: true
+  validates :item_description, length: { maximum: 12 }
+
   def self.total
     total = 0
     BankAccount.all.each do |account|
